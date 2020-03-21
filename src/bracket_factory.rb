@@ -21,6 +21,12 @@ class BracketFactory
     box[-1] = "}]" if box[-1] == "}"
     box = box.each_with_index{|char,index| box[index]="}{" if char == "{"}
     box = box.each_with_index{|char,index| box[index]="}{" if char == "}"}
-    p box.join("(B)")
+    return box.join("(B)")
   end
 end
+
+puts "Hi!\nI am the brackets factory, Please insert your package and I will fix
+it with the needed brackets:"
+x = gets.chomp()
+string = BracketFactory.new(x)
+puts string.find_missing_brackets
