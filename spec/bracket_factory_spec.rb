@@ -5,25 +5,25 @@ describe '#bracket_factory' do
   context 'Adds the missing bracket in the right sequence,' do
     it 'returns this string [{(B)}{(B)(B)}] when entering [{(B}{(B)(B)}]' do
       string=BracketFactory.new('[{(B}{(B)(B)}]')
-      expect(string.find_missing_brackets).to eq("[{(B)}{(B)(B)}]")
+      expect(string.find_bees_add_brackets).to eq("[{(B)}{(B)(B)}]")
     end
     it 'returns this string [{(B)}{(B)(B)}] when entering {(B)}{(B)(B)}]' do
       string=BracketFactory.new('{(B)}{(B)(B)}]')
-      expect(string.find_missing_brackets).to eq("[{(B)}{(B)(B)}]")
+      expect(string.find_bees_add_brackets).to eq("[{(B)}{(B)(B)}]")
     end
     it 'returns this string [{(B)}{(B)(B)}] when entering [{(B)}(B)(B)}]' do
       string=BracketFactory.new('[{(B)}(B)(B)}]')
-      expect(string.find_missing_brackets).to eq("[{(B)}{(B)(B)}]")
+      expect(string.find_bees_add_brackets).to eq("[{(B)}{(B)(B)}]")
     end
     it 'returns this string [{(B)}{(B)(B)}] when entering [{(B)}{(B(B)}]' do
       string=BracketFactory.new('[{(B)}{(B(B)}]')
-      expect(string.find_missing_brackets).to eq("[{(B)}{(B)(B)}]")
+      expect(string.find_bees_add_brackets).to eq("[{(B)}{(B)(B)}]")
     end
 
     it 'raises an error if the input is not in the brackets format' do
       expect do
         string=BracketFactory.new(nil)
-        string.find_missing_brackets
+        string.find_bees_add_brackets
       end.to raise_error("Please enter a valid bracket string")
     end
   end
