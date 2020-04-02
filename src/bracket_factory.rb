@@ -5,7 +5,7 @@ class BracketFactory
   end
 
   def find_bees_add_brackets
-    raise "Please enter a valid bracket string" if @str == nil
+    raise "Please enter a valid bracket string" if @str == nil || !(@str.split('').uniq.sort - "()B[]{}".split('')).empty?
     @bees = @str.split('').each_index.select{ |char| @str.split('')[char] == "B"}
     @bees.reverse!
     self.add_missing_brackets
@@ -28,8 +28,8 @@ class BracketFactory
   end
 end
 
-puts "Hi!\nI am the brackets factory, Please insert your package and I will fix
-it with the needed brackets:"
-x = gets.chomp()
-string = BracketFactory.new(x)
-puts string.find_bees_add_brackets
+# puts "Hi!\nI am the brackets factory, Please insert your package and I will fix
+# it with the needed brackets:"
+# x = gets.chomp()
+# string = BracketFactory.new(x)
+# puts "I have added the missing brackets:" + string.find_bees_add_brackets
